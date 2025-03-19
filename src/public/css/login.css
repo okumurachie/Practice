@@ -49,8 +49,9 @@
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #000;
-    color: #fff;
+    background: #fc8ac1;
+    border: none;
+    color: #ffffff;
     cursor: pointer;
 }
 

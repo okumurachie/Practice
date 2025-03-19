@@ -1,5 +1,5 @@
 .header {
-    background: #000;
+    background: #12d8df;
 }
 
 .header__inner {
@@ -35,6 +35,9 @@
     color: #fff;
     text-decoration: none;
 }
+.header-nav__link:hover{
+    text-decoration: underline;
+}
 
 .header-nav__button {
     border: none;
@@ -42,4 +45,35 @@
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+}
+.footer {
+    background: #12d8df;
+    margin-top: 100px;
+}
+
+.footer__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.small{
+    color: #fff;
+}
+.footer-nav{
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-nav__item{
+    list-style: none;
+}
+.footer-nav__link {
+    color: #fff;
+    text-decoration: none; /* リンクの下線を消す */
+}
+.footer-nav__link:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
 }

@@ -1,19 +1,35 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/product.css') }}">
 @endsection
 
 @section('content')
+<div class="register__alert">
+    @if(session('message'))
+    <div class="register__alert--success">
+        {{session('message')}}
+    </div>
+    @endif
+    @if ($errors->any())
+    <div class="register__alert--danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+</div>
+
 <div class="register__content">
     <div class="register-form__heading">
-        <h2>会員登録</h2>
+        <h2>出品登録</h2>
     </div>
-    <form class="form" action="/register" method="post">
+    <form class="form" action="/products" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">お名前</span>
+                <span class="form__label--item">出品名</span>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -28,14 +44,14 @@
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">メールアドレス</span>
+                <span class="form__label--item">価格</span>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="email" name="email" value="{{ old('email') }}" />
+                    <input type="number" name="price" value="{{ old('price') }}">
                 </div>
                 <div class="form__error">
-                    @error('email')
+                    @error('price')
                     {{ $message }}
                     @enderror
                 </div>
@@ -43,26 +59,22 @@
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">パスワード</span>
+                <span class="form__label--item">商品画像</span>
             </div>
             <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="password" name="password" value="{{old('password')}}"/>
+                <input type="file" id="imageInput" accept="image/*">
+                    <div class="form__img">
+                        <img id="preview"  alt="image preview" style="max-width: 200px; display: none;">
+                    </div>
                 </div>
-                <div class="form__error">
-                    @error('password')
-                    {{ $message }}
-                    @enderror
-                </div>
-            </div>
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">確認用パスワード</span>
+                <span class="form__label--item">商品説明</span>
             </div>
             <div class="form__group-content">
-                <div class="form__input--text">
-                    <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}"/>
+                <div class="textarea">
+                    <textarea name="textarea" cols="60" rows="5">{{old('comment','')}}</textarea>
                 </div>
             </div>
         </div>
@@ -70,8 +82,5 @@
             <button class="form__button-submit" type="submit">登録</button>
         </div>
     </form>
-    <div class="login__link">
-        <a class="login__button-submit" href="/login">ログインの方はこちら</a>
-    </div>
 </div>
 @endsection

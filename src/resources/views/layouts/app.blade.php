@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アプリケーション名</title>
+    <title>フリマサイト</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     @yield('css')
@@ -16,7 +16,7 @@
         <div class="header__inner">
             <div class="header-utilities">
                 <a class="header__logo" href="/">
-                    アプリケーション名
+                    フリマサイト
                 </a>
                 <nav>
                     <ul class="header-nav">
@@ -30,6 +30,13 @@
                                 <button class="header-nav__button">ログアウト</button>
                             </form>
                         </li>
+                        @else
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/login">ログイン</a>
+                        </li>
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/register">会員登録</a>
+                        </li>
                         @endif
                     </ul>
                 </nav>
@@ -40,6 +47,21 @@
     <main>
         @yield('content')
     </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <small class="small">&copy; 2026, inc.</small>
+            @if (Auth::check())
+            <ul class="footer-nav">
+                <li class="footer-nav__item">
+                    <a href="/" class="footer-nav__link">ホームに戻る</a>
+                </li>
+                <li class="footer-nav__item">
+                <a href="/products" class="footer-nav__link">出品</a>
+            </ul>
+            @endif
+        </div>
+    </footer>
 </body>
 
 </html>

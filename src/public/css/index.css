@@ -1,0 +1,106 @@
+.ec_content {
+    margin: 0 auto;
+    width: 90%; /* Increased the width to 90% for more spacing */
+}
+
+.ec_content__inner {
+    width: 100%;
+    padding: 0 25px;
+}
+
+.content-header h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.lineup h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.content__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-rows: auto; /* Automatically adjust the row height */
+    gap: 20px; /* Adds space between items */
+    margin-bottom: 30px;
+}
+
+.content__box-1,
+.content__box-2,
+.content__box-3,
+.content__box-4,
+.content__box-5,
+.content__box-6,
+.content__box-7,
+.content__box-8,
+.content__box-9 {
+    background-color: #fff; /* White background for each item */
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for a clean look */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.content__img img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Limits the height of images */
+    object-fit: cover;
+    border-radius: 8px; /* Round the corners of the images */
+}
+
+.content__detail-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.content__name,
+.content__price {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.content__detail-2 {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.content__id {
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content__id:hover {
+    text-decoration: underline;
+    color: #007bff; /* Blue color on hover */
+}
+
+@media screen and (max-width: 1024px) {
+    .content__box {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content__box {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-header h2, .lineup h3 {
+        font-size: 1.2rem; /* Adjust title size on small screens */
+    }
+}
