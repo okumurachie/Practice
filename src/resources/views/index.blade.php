@@ -5,6 +5,21 @@
 @endsection
 
 @section('content')
+<div class="register__alert">
+    @if(session('message'))
+    <div class="register__alert--success">
+        {{session('message')}}
+    </div>
+    @endif
+    @if ($errors->any())
+    <div class="register__alert--danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
+</div>
 <div class="ec_content">
     <div class="ec_content__inner">
     <div class="content-header">

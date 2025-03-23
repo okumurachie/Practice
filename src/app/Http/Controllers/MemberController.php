@@ -20,6 +20,12 @@ class MemberController extends Controller
         $form = $request->all();
         $form['password']= Hash::make($form['password']);
         Member::create($form);
-        return redirect('/')->with('success','会員登録が完了しました');
+        return redirect('/')->with('message','会員登録が完了しました');
+    }
+    public function mypage()
+    {
+        $member = auth()->user();
+        return view('mypage',compact('member'));
+
     }
 }

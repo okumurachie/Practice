@@ -1,3 +1,18 @@
+.register__alert--success{
+    padding: 10px 30px;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+.register__alert--danger{
+    padding: 10px 0;
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+}
+.register__alert--danger ul {
+    margin: 0;
+}
 .ec_content {
     margin: 0 auto;
     width: 90%; /* Increased the width to 90% for more spacing */

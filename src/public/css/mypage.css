@@ -1,0 +1,168 @@
+.my-list__content{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+.my-list__title h2{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0;
+
+}
+.member-info{
+    display: flex;
+    gap:20px;
+    font-size: 35px;
+}
+.member-info p{
+    margin: 0;
+    padding-right: 20px;
+}
+.product-table{
+    width: 90%;
+    margin: 0 auto;
+
+}
+.product-table__header-1{
+    font-size: 25px;
+    margin-top: 20px;
+}
+.product-table__inner{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+.product-table__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.product-table__item-content{
+    flex: 4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 5px 40px;
+    font-size: 25px;
+    line-height: 0.6em;
+}
+.product-table__item-content p{
+    padding-right: 40px;
+    flex: 3;
+    display: flex;
+}
+.product-table__item-edit,
+.product-table__item-destroy{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-edit, .product-destroy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+}
+.form__button-submit{
+    padding: 10px;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #fc8ac1;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.purchase-proceeds__table{
+    margin: 60px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.purchase-table{
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.purchase-table__header{
+    font-size: 25px;
+}
+.purchase-table__inner{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+.purchase-table__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.purchase-table__item{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    padding: 5px 40px;
+    font-size: 25px;
+    line-height: 0.6em;
+}
+.purchase-table__item p{
+    display: flex;
+}
+.purchase-name,
+.purchase-price,
+.purchase-date{
+    flex: 1;
+    display: flex;
+    margin-right: 40px;
+}
+.proceeds-table{
+    width: 40%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.proceeds-table__header{
+    font-size: 25px;
+}
+.proceeds-table__inner{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+.proceeds-table__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.proceeds-table__item1{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 20px;
+    line-height: 0.6em;
+    border-bottom: 1px solid #ddd;
+}
+.proceeds-table__item1 p{
+    padding-right: 40px;
+}
+.proceeds-table__item2{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 20px;
+    line-height: 0.6em;
+}
+.proceeds-table__item2 p{
+    padding-right: 80px;
+}

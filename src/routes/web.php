@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,12 @@ Route::middleware('auth')->group(function () {
 */
 Route::get('/', [MemberController::class, 'index']);
 Route::post('/register', [MemberController::class, 'store']);
+Route::get('/mypage',[MemberController::class,'mypage'])->middleware('auth');
+
 Route::get('/products', [ProductController::class, 'create']);
 Route::post('/products',[ProductController::class, 'store']);
 Route::get('/details',[ProductController::class, 'index']);
-//Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show'); // 商品詳細 データ保存後定義する
+//Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show'); // 商品詳細 データ保存後定義する？
+Route::get('/edit', [ProductController::class, 'edit']);
+
+Route::get('/purchases', [PurchaseController::class, 'index']);

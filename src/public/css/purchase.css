@@ -1,0 +1,18 @@
+.purchase__content{
+    width: 100%;
+}
+.purchase__content{
+    display: block;
+    text-align: center;
+}
+.purchase__content h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+.purchase__content h3{
+    font-size: 30px;
+}
+
+.form__label--item{
+    font-size: 25px;
+}

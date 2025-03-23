@@ -25,7 +25,7 @@
                         <p>コメントがここに入ります</p>
                     </div>
                 </div>
-                    <a href="">
+                    <a href="/purchases">
                         <div class="form_button">
                             <button class="form__button-submit" type="submit">購入手続きへ</button>
                         </div>

@@ -42,6 +42,12 @@ class ProductController extends Controller
     $product = Product::with('member')->findOrFail($id);
     return view('detail', compact('product'));
     }
+
+    public function edit(Request $request)
+        {
+            $product = Product::find($request->id);
+            return view('edit',['form' => $product]);
+        }
 }
     //public function index()
     //{
