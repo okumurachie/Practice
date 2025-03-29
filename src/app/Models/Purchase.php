@@ -14,6 +14,7 @@ class Purchase extends Model
         'product_id',
         'recipient',
     ];
+    protected $dates = ['display_date'];
 
     public function member()
     {
@@ -21,6 +22,6 @@ class Purchase extends Model
     }
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'product_id');
     }
 }

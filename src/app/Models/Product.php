@@ -15,9 +15,14 @@ class Product extends Model
         'image',
         'comment'
     ];
-
+    protected $dates = ['display_date'];
+    
     public function member()
     {
         return $this->belongsTo(Member::class);
+    }
+    public function purchase()
+    {
+        return $this->hasMany(Purchase::class);
     }
 }

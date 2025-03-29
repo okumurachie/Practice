@@ -31,8 +31,10 @@ Route::get('/mypage',[MemberController::class,'mypage'])->middleware('auth');
 
 Route::get('/products', [ProductController::class, 'create']);
 Route::post('/products',[ProductController::class, 'store']);
-Route::get('/details',[ProductController::class, 'index']);
-//Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show'); // 商品詳細 データ保存後定義する？
+//Route::get('/details',[ProductController::class, 'index']);
+Route::get('/details/{id}', [ProductController::class, 'show']); // 商品詳細 データ保存後定義する？
 Route::get('/edit', [ProductController::class, 'edit']);
-
-Route::get('/purchases', [PurchaseController::class, 'index']);
+//Route::get('/purchase.confirm/{id}', [PurchaseController::class, 'index']);
+Route::get('/purchases/{id}',[PurchaseController::class,'show']);
+Route::post('/purchases/{id}',[PurchaseController::class,'store']);
+Route::patch('/edit/update',[ProductController::class,'update']);

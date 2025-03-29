@@ -25,7 +25,7 @@
     <div class="register-form__heading">
         <h2>出品登録</h2>
     </div>
-    <form class="form" action="/products" method="post">
+    <form class="form" action="/products" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form__group">
             <div class="form__group-title">
@@ -62,7 +62,7 @@
                 <span class="form__label--item">商品画像</span>
             </div>
             <div class="form__group-content">
-                <input type="file" id="imageInput" accept="image/*">
+                <input type="file" id="imageInput" accept="image/*" name="image">
                     <div class="form__img">
                         <img id="preview"  alt="image preview" style="max-width: 200px; display: none;">
                     </div>
@@ -73,8 +73,8 @@
                 <span class="form__label--item">商品説明</span>
             </div>
             <div class="form__group-content">
-                <div class="textarea">
-                    <textarea name="textarea" cols="60" rows="5">{{old('comment','')}}</textarea>
+                <div class="form__input--textarea">
+                    <textarea name="comment" cols="60" rows="5">{{old('comment','')}}</textarea>
                 </div>
             </div>
         </div>

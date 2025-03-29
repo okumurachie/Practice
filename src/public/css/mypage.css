@@ -38,16 +38,26 @@
     width: 100%;
 }
 .product-table__item-content{
-    flex: 4;
+    flex: 6;
     margin: 0;
     display: flex;
     align-items: center;
-    padding: 5px 40px;
+    padding: 5px 20px;
     font-size: 25px;
     line-height: 0.6em;
 }
-.product-table__item-content p{
-    padding-right: 40px;
+.product-name{
+    padding-right: 20px;
+    flex: 2;
+    display: flex;
+}
+.product-price{
+    padding-right: 20px;
+    flex: 1;
+    display: flex;
+}
+.product-date{
+    padding-right: 20px;
     flex: 3;
     display: flex;
 }
@@ -106,7 +116,7 @@
     width: 100%;
 }
 .purchase-table__item{
-    flex: 3;
+    flex: 7;
     display: flex;
     align-items: center;
     padding: 5px 40px;
@@ -116,13 +126,25 @@
 .purchase-table__item p{
     display: flex;
 }
-.purchase-name,
-.purchase-price,
-.purchase-date{
+.purchase-name{
+    flex: 2;
+    display: flex;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.purchase-price{
     flex: 1;
     display: flex;
-    margin-right: 40px;
+    margin-right: 20px;
+    font-size: 18px;
 }
+.purchase-date{
+    flex: 4;
+    display: flex;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
 .proceeds-table{
     width: 40%;
     border: 1px solid #ddd;

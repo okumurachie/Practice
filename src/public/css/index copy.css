@@ -43,7 +43,15 @@
     margin-bottom: 30px;
 }
 
-.content__box-item {
+.content__box-1,
+.content__box-2,
+.content__box-3,
+.content__box-4,
+.content__box-5,
+.content__box-6,
+.content__box-7,
+.content__box-8,
+.content__box-9 {
     background-color: #fff; /* White background for each item */
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for a clean look */
@@ -63,7 +71,7 @@
 }
 
 .content__detail-1 {
-    width: 300px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
@@ -84,7 +92,7 @@
 
 .content__id {
     font-size: 1.1rem;
-    color: red;
+    color: #333;
     text-decoration: none;
     font-weight: bold;
 }
@@ -110,9 +118,4 @@
     .content-header h2, .lineup h3 {
         font-size: 1.2rem; /* Adjust title size on small screens */
     }
-}
-.pagination .w-5,
-.pagination .h-5 {
-    width: 16px !important;
-    height: 16px !important;
 }
