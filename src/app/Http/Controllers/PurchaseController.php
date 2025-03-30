@@ -36,6 +36,6 @@ class PurchaseController extends Controller
         $purchases['product_id']= $request->input('product_id');
         Purchase::create($purchases);
         //return redirect()->route('purchase.complete')->with('massage','購入が完了しました');
-        return redirect('/purchases/{id}')->with('message','購入が完了しました');
+        return redirect('/purchases/'.$purchases['product_id'])->with('message','購入が完了しました');
     }
 }

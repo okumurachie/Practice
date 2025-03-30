@@ -36,11 +36,14 @@
                 </p>
                 <div class="content__inner">
                     <div class="content__img">
-                        <img src="{{ asset('storage/images/' . $product['image']) }}" alt="{{$product['name']}}">
+                        <img src="{{asset($product['image'])}}" alt="{{$product['name']}}">
                     </div>
                     <div class="content__detail-1">
                         <div class="content__name">
                             <p>{{$product['name']}}</p>
+                            @if(isset($product->purchases->created_at))
+                            <p>{{$product->purchases->created_at}}</p>
+                            @endif
                         </div>
                         <div class="content__price">
                             <p>{{"¥".$product['price']}}</p>

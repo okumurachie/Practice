@@ -21,7 +21,7 @@ class Product extends Model
     {
         return $this->belongsTo(Member::class);
     }
-    public function purchase()
+    public function purchases()
     {
         return $this->hasMany(Purchase::class);
     }

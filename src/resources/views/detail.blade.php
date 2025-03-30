@@ -11,7 +11,7 @@
         </p>
         <div class="product_content_card">
             <div class="product_img">
-                <img src="{{ asset('storage/images/' . $products['image']) }}" alt="{{$products['name']}}">
+                <img src="{{asset($products['image'])}}" alt="{{$products['name']}}">
             </div>
             <div class="about-product">
                 <div class="product_information">

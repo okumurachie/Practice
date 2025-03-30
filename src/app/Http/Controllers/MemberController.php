@@ -35,6 +35,20 @@ class MemberController extends Controller
         $purchases = Purchase::where('member_id',$member->id)
                             ->with('product')
                             ->get();
-        return view('mypage',compact('member','products','purchases'));
+        $sales = Purchase::whereHas('product',
+                                    function($q) use($member){
+                                        $q->where('member_id',$member->id); //Productのmember_idが$member->idのデータを取得
+                                    })
+                                ->join('products','purchases.product_id','=','products.id') //purchasesテーブルとproductsテーブルと
+                                //をproduct_idをキーに結合
+                                //->select('products.price')   金額のデータのみ必要なら、データサイズを減らし処理を軽量化できる
+                                ->get(); //クエリ結果を取得
+        $totalSales = Purchase::whereHas('product',
+                                    function($q) use($member){
+                                        $q->where('member_id',$member->id);
+                                    })
+                                    ->join('products','purchases.product_id','=','products.id')
+                                    ->sum('products.price');
+        return view('mypage',compact('member','products','purchases','sales','totalSales'));
     }
 }

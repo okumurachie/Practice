@@ -21,7 +21,6 @@
 .product-table{
     width: 90%;
     margin: 0 auto;
-
 }
 .product-table__header-1{
     font-size: 25px;
@@ -31,14 +30,16 @@
     border-bottom: 1px solid #ddd;
     width: 100%;
 }
+
 .product-table__row{
     display: flex;
+    border-bottom: 1px solid #ddd;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
 .product-table__item-content{
-    flex: 6;
+    flex: 7;
     margin: 0;
     display: flex;
     align-items: center;
@@ -53,7 +54,8 @@
 }
 .product-price{
     padding-right: 20px;
-    flex: 1;
+    margin-left: 20px;
+    flex: 2;
     display: flex;
 }
 .product-date{
@@ -96,18 +98,17 @@
     gap: 40px;
 }
 .purchase-table{
-    width: 60%;
+    width: 55%;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
 }
 .purchase-table__header{
     font-size: 25px;
 }
 .purchase-table__inner{
     width: 100%;
-    border-bottom: 1px solid #ddd;
 }
 .purchase-table__row{
     display: flex;
@@ -116,10 +117,11 @@
     width: 100%;
 }
 .purchase-table__item{
-    flex: 7;
+    flex: 8;
     display: flex;
     align-items: center;
     padding: 5px 40px;
+    border-bottom: 1px solid #ddd;
     font-size: 25px;
     line-height: 0.6em;
 }
@@ -133,9 +135,9 @@
     font-size: 18px;
 }
 .purchase-price{
-    flex: 1;
+    flex: 2;
     display: flex;
-    margin-right: 20px;
+    margin-right: 40px;
     font-size: 18px;
 }
 .purchase-date{
@@ -146,7 +148,7 @@
 }
 
 .proceeds-table{
-    width: 40%;
+    width: 45%;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -166,23 +168,35 @@
     width: 100%;
 }
 .proceeds-table__item1{
-    flex: 3;
+    flex: 6;
     display: flex;
     align-items: center;
     padding: 5px 20px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 0.6em;
     border-bottom: 1px solid #ddd;
 }
 .proceeds-table__item1 p{
-    padding-right: 40px;
+    margin-right: 10px;
+}
+.proceeds-name{
+    flex:2;
+    display: flex;
+}
+.proceeds-price{
+    flex:1;
+    display: flex;
+}
+.proceeds-date{
+    flex:3;
+    display: flex;
 }
 .proceeds-table__item2{
     flex: 2;
     display: flex;
     align-items: center;
     padding: 5px 20px;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 0.6em;
 }
 .proceeds-table__item2 p{
