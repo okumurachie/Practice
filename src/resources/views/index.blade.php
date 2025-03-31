@@ -11,13 +11,14 @@
         {{session('message')}}
     </div>
     @endif
-    @if ($errors->any())
+    @if($errors->any())
     <div class="register__alert--danger">
         <ul>
             @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
         </ul>
+    </div>
     @endif
 </div>
 <div class="ec_content">
@@ -46,7 +47,7 @@
                             @endif
                         </div>
                         <div class="content__price">
-                            <p>{{"¥".$product['price']}}</p>
+                            <p>{{"¥".number_format($product['price'])}}</p>
                         </div>
                     </div>
                     <div class="content__detail-2">

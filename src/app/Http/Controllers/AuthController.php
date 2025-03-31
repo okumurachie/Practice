@@ -12,14 +12,15 @@ class AuthController extends Controller
         return view('index');
     }
 
+
 }
-    /*
-    public function login(Request $request)
+    
+    /*public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->with('message','ログインしました'); // ログイン成功時
+            return redirect()->route('index')->with('message','ログインしました'); // ログイン成功時
         }
 
         return back()->withErrors([

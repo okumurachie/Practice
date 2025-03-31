@@ -19,7 +19,7 @@
                         <h2>{{$products['name']}}</h2>
                     </div>
                     <div class="product_price">
-                        <p>{{"¥" . $products['price']}}</p>
+                        <p>{{"¥" . number_format($products['price'])}}</p>
                     </div>
                     <div class="product_comment">
                         <p>{{$products['comment']}}</p>
