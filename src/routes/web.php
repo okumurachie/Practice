@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 
@@ -25,9 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 });
 */
-Route::get('/', [MemberController::class, 'index']);
-Route::post('/register', [MemberController::class, 'store']);
-Route::get('/mypage',[MemberController::class,'mypage'])->middleware('auth');
+Route::get('/', [UserController::class, 'index']);
+Route::post('/register', [UserController::class, 'store']);
+Route::get('/mypage',[UserController::class,'mypage'])->middleware('auth');
 
 Route::get('/products', [ProductController::class, 'create']);
 Route::post('/products',[ProductController::class, 'store']);

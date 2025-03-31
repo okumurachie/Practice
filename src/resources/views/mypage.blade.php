@@ -8,9 +8,9 @@
 <div class="my-list__content">
     <div class="my-list__title">
         <h2>マイページ</h2>
-        <div class="member-info">
-            <p>{{$member->name}}</p>
-            <p>{{$member->email}}</p>
+        <div class="user-info">
+            <p>{{$user->name}}</p>
+            <p>{{$user->email}}</p>
         </div>
     </div>
     <div class="product-table">

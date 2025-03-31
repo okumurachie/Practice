@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'member_id',
+        'user_id',
         'name',
         'price',
         'image',
@@ -17,9 +17,9 @@ class Product extends Model
     ];
     protected $dates = ['display_date'];
     
-    public function member()
+    public function user()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(User::class);
     }
     public function purchases()
     {

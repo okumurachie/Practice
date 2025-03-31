@@ -1,44 +1,43 @@
-.my-list__content{
+.my-list__content {
     width: 90%;
     height: auto;
     margin: 0 auto;
 }
-.my-list__title h2{
+.my-list__title h2 {
     font-size: 40px;
     font-weight: bold;
     padding: 0;
-
 }
-.member-info{
+.user-info {
     display: flex;
-    gap:20px;
+    gap: 20px;
     font-size: 35px;
 }
-.member-info p{
+.user-info p {
     margin: 0;
     padding-right: 20px;
 }
-.product-table{
+.product-table {
     width: 90%;
     margin: 0 auto;
 }
-.product-table__header-1{
+.product-table__header-1 {
     font-size: 25px;
     margin-top: 20px;
 }
-.product-table__inner{
+.product-table__inner {
     border-bottom: 1px solid #ddd;
     width: 100%;
 }
 
-.product-table__row{
+.product-table__row {
     display: flex;
     border-bottom: 1px solid #ddd;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-.product-table__item-content{
+.product-table__item-content {
     flex: 7;
     margin: 0;
     display: flex;
@@ -47,37 +46,38 @@
     font-size: 25px;
     line-height: 0.6em;
 }
-.product-name{
+.product-name {
     padding-right: 20px;
     flex: 2;
     display: flex;
 }
-.product-price{
+.product-price {
     padding-right: 20px;
     margin-left: 20px;
     flex: 2;
     display: flex;
 }
-.product-date{
+.product-date {
     padding-right: 20px;
     flex: 3;
     display: flex;
 }
 .product-table__item-edit,
-.product-table__item-destroy{
+.product-table__item-destroy {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.product-edit, .product-destroy {
+.product-edit,
+.product-destroy {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     text-decoration: none;
 }
-.form__button-submit{
+.form__button-submit {
     padding: 10px;
     height: 50px;
     border: none;
@@ -90,33 +90,33 @@
     justify-content: center;
     align-items: center;
 }
-.purchase-proceeds__table{
+.purchase-proceeds__table {
     margin: 60px auto;
     width: 100%;
     display: flex;
     flex-direction: row;
     gap: 40px;
 }
-.purchase-table{
+.purchase-table {
     width: 55%;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
 }
-.purchase-table__header{
+.purchase-table__header {
     font-size: 25px;
 }
-.purchase-table__inner{
+.purchase-table__inner {
     width: 100%;
 }
-.purchase-table__row{
+.purchase-table__row {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-.purchase-table__item{
+.purchase-table__item {
     flex: 8;
     display: flex;
     align-items: center;
@@ -125,49 +125,49 @@
     font-size: 25px;
     line-height: 0.6em;
 }
-.purchase-table__item p{
+.purchase-table__item p {
     display: flex;
 }
-.purchase-name{
+.purchase-name {
     flex: 2;
     display: flex;
     margin-right: 20px;
     font-size: 18px;
 }
-.purchase-price{
+.purchase-price {
     flex: 2;
     display: flex;
     margin-right: 40px;
     font-size: 18px;
 }
-.purchase-date{
+.purchase-date {
     flex: 4;
     display: flex;
     margin-right: 20px;
     font-size: 18px;
 }
 
-.proceeds-table{
+.proceeds-table {
     width: 45%;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
-.proceeds-table__header{
+.proceeds-table__header {
     font-size: 25px;
 }
-.proceeds-table__inner{
+.proceeds-table__inner {
     width: 100%;
     border-bottom: 1px solid #ddd;
 }
-.proceeds-table__row{
+.proceeds-table__row {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-.proceeds-table__item1{
+.proceeds-table__item1 {
     flex: 6;
     display: flex;
     align-items: center;
@@ -176,22 +176,22 @@
     line-height: 0.6em;
     border-bottom: 1px solid #ddd;
 }
-.proceeds-table__item1 p{
+.proceeds-table__item1 p {
     margin-right: 10px;
 }
-.proceeds-name{
-    flex:2;
+.proceeds-name {
+    flex: 2;
     display: flex;
 }
-.proceeds-price{
-    flex:1;
+.proceeds-price {
+    flex: 1;
     display: flex;
 }
-.proceeds-date{
-    flex:3;
+.proceeds-date {
+    flex: 3;
     display: flex;
 }
-.proceeds-table__item2{
+.proceeds-table__item2 {
     flex: 2;
     display: flex;
     align-items: center;
@@ -199,6 +199,6 @@
     font-size: 25px;
     line-height: 0.6em;
 }
-.proceeds-table__item2 p{
+.proceeds-table__item2 p {
     padding-right: 80px;
 }
