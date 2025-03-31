@@ -10,15 +10,15 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable = [
-        'member_id',
+        'user_id',
         'product_id',
         'recipient',
     ];
     protected $dates = ['display_date'];
 
-    public function member()
+    public function user()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(User::class);
     }
     public function product()
     {

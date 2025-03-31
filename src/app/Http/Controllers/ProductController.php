@@ -7,22 +7,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
-use App\Models\Member;
+use App\Models\User;
 
 class ProductController extends Controller
 {
     public function create()
     {
-        $products = Product::with('member')->get();
-        $members = Member::all();
+        $products = Product::with('user')->get();
+        $users = User::all();
 
-        return view('product',compact('products', 'members'));
+        return view('product',compact('products', 'users'));
     }
     public function store(ProductRequest $request)
     {
 
         $productData = $request->all();
-        $productData['member_id'] = Auth::id();
+        $productData['user_id'] = Auth::id();
         //$productData['comment'] = $productData['comment'] ?: '';
         //Log::debug('a');
         if($request->hasFile('image')){
@@ -39,7 +39,7 @@ class ProductController extends Controller
 
     /*public function index()
     {
-        $products = Product::with('member')->get();
+        $products = Product::with('user')->get();
         return view('detail',compact('products'));
     }
     */
@@ -65,6 +65,6 @@ class ProductController extends Controller
 }
     //public function index()
     //{
-        //$products = Product::with('member')->get();
+        //$products = Product::with('user')->get();
         //return view('product.index', compact('products'));
     //}
