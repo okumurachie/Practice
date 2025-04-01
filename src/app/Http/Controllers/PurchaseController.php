@@ -3,38 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\User;
 use App\Models\Purchase;
 use App\Http\Requests\PurchaseRequest;
-use App\Http\Requests\PurchaseRequest as RequestsPurchaseRequest;
 
 class PurchaseController extends Controller
 {
     public function show($id)
     {
-        //$products = Product::with('user')->get();
         $products = Product::findOrFail($id);
-        //purchase = Purchase::with('product')->get();
-        $users = User::all();
-        return view ('purchase',compact('products'));
+        return view('purchase', compact('products'));
     }
 
-    /*public function index($id)
-    {
-        $products = Product::findOrFail($id);
-    //purchase = Purchase::with('product')->get();
-        $users = User::all();
-        return view ('purchase.confirm',compact('products'));
-    }
-    */
     public function store(PurchaseRequest $request)
     {
         $purchases = $request->all();
-        $purchases['product_id']= $request->input('product_id');
+        $purchases['user_id'] = Auth::id();
+        $purchases['product_id'] = $request->input('product_id');
         Purchase::create($purchases);
-        //return redirect()->route('purchase.complete')->with('massage','購入が完了しました');
-        return redirect('/purchases/'.$purchases['product_id'])->with('message','購入が完了しました');
+        return redirect('/purchases/' . $purchases['product_id'])->with('message', '購入が完了しました');
     }
 }
