@@ -34,10 +34,14 @@ class UserController extends Controller
         $user = auth()->user();
         $products = Product::where('user_id', $user->id)->get();
         $purchases = Purchase::where('user_id', $user->id)->get();
-        $sales = Purchase::with(['product' => function ($q) use ($user) {
+
+        $sales = Purchase::whereHas('product', function ($q) use ($user) {
             $q->where('user_id', $user->id);
-        }])->get();
-        $totalSales = $sales->sum('product.price');
+        })->with('product')->get();
+
+        $totalSales = $sales->reduce(function ($total, $sale) {
+            return $total + ($sale->product ? $sale->product->price : 0);
+        }, 0);
 
         return view('mypage', compact('user', 'products', 'purchases', 'sales', 'totalSales'));
     }
