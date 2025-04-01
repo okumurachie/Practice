@@ -3,15 +3,11 @@
     height: auto;
     margin: 0 auto;
 }
-.product_number{
-    padding: 25px;
-    font-size: 40px;
-    color: red;
-}
 .product_content_card{
     width: 90%;
     height: auto;
     margin: 0 auto;
+    padding-top: 80px;
     display: flex;
     flex-direction: row;
 }

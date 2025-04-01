@@ -45,6 +45,22 @@
     </header>
 
     <main>
+        <div class="register__alert">
+            @if(session('message'))
+            <div class="register__alert--success">
+                {{session('message')}}
+            </div>
+            @endif
+            @if($errors->any())
+            <div class="register__alert--danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
         @yield('content')
     </main>
 
@@ -57,7 +73,7 @@
                     <a href="/" class="footer-nav__link">ホームに戻る</a>
                 </li>
                 <li class="footer-nav__item">
-                <a href="/products" class="footer-nav__link">出品</a>
+                    <a href="/products" class="footer-nav__link">出品</a>
             </ul>
             @endif
         </div>

@@ -46,6 +46,21 @@
     font-size: 16px;
     cursor: pointer;
 }
+.register__alert--success{
+    padding: 10px 30px;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+.register__alert--danger{
+    padding: 10px 0;
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+}
+.register__alert--danger ul {
+    margin: 0;
+}
 .footer {
     background: #12d8df;
     margin-top: 100px;
