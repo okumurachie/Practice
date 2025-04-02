@@ -28,17 +28,17 @@
 .header-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .header-nav__link {
     color: #fff;
     text-decoration: none;
 }
-.header-nav__link:hover{
+.header-nav__link:hover {
     text-decoration: underline;
 }
-.header-nav__button:hover{
+.header-nav__button:hover {
     text-decoration: underline;
 }
 .header-nav__button {
@@ -48,13 +48,13 @@
     font-size: 16px;
     cursor: pointer;
 }
-.register__alert--success{
+.register__alert--success {
     padding: 10px 30px;
     color: #0f5132;
     background-color: #d1e7dd;
     border-color: #badbcc;
 }
-.register__alert--danger{
+.register__alert--danger {
     padding: 10px 0;
     background-color: #f8d7da;
     color: #842029;
@@ -76,15 +76,15 @@
     justify-content: space-between;
     align-items: center;
 }
-.small{
+.small {
     color: #fff;
 }
-.footer-nav{
+.footer-nav {
     width: 18%;
     display: flex;
     justify-content: space-between;
 }
-.footer-nav__item{
+.footer-nav__item {
     list-style: none;
 }
 .footer-nav__link {
