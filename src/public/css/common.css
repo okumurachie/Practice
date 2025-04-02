@@ -22,7 +22,7 @@
 }
 
 .header-utilities nav {
-    width: 18%;
+    width: 40%;
 }
 
 .header-nav {
@@ -38,7 +38,9 @@
 .header-nav__link:hover{
     text-decoration: underline;
 }
-
+.header-nav__button:hover{
+    text-decoration: underline;
+}
 .header-nav__button {
     border: none;
     background: transparent;

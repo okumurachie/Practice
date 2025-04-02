@@ -25,6 +25,9 @@
                             <a class="header-nav__link" href="/mypage">マイページ</a>
                         </li>
                         <li class="header-nav__item">
+                            <a class="header-nav__link" href="/products">出品</a>
+                        </li>
+                        <li class="header-nav__item">
                             <form class="form" action="/logout" method="post">
                                 @csrf
                                 <button class="header-nav__button">ログアウト</button>
@@ -72,8 +75,6 @@
                 <li class="footer-nav__item">
                     <a href="/" class="footer-nav__link">ホームに戻る</a>
                 </li>
-                <li class="footer-nav__item">
-                    <a href="/products" class="footer-nav__link">出品</a>
             </ul>
             @endif
         </div>

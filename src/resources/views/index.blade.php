@@ -21,19 +21,21 @@
                         <div class="content__img">
                             <img src="{{asset($product['image'])}}" alt="{{$product['name']}}">
                         </div>
-                        <div class="content__detail-1">
-                            <div class="content__name">
-                                <p>{{$product['name']}}</p>
-                                @if(isset($product->purchases->created_at))
-                                <p>{{$product->purchases->created_at}}</p>
-                                @endif
+                        <div class="content__detail">
+                            <div class="content__detail-1">
+                                <div class="content__name">
+                                    <p>{{$product['name']}}</p>
+                                    @if(isset($product->purchases->created_at))
+                                    <p>{{$product->purchases->created_at}}</p>
+                                    @endif
+                                </div>
+                                <div class="content__price">
+                                    <p>{{"¥".number_format($product['price'])}}</p>
+                                </div>
                             </div>
-                            <div class="content__price">
-                                <p>{{"¥".number_format($product['price'])}}</p>
+                            <div class="content__detail-2">
+                                <p>{{$product['comment']}}</p>
                             </div>
-                        </div>
-                        <div class="content__detail-2">
-                            <p>{{$product['comment']}}</p>
                         </div>
                     </div>
                 </div>
