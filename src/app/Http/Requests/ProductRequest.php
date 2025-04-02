@@ -26,9 +26,9 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'comment' => 'nullable|string',
-            ];
+        ];
     }
     public function messages()
     {
@@ -37,6 +37,7 @@ class ProductRequest extends FormRequest
             'name.string' => '品名を文字列で入力してください',
             'price.required' => '価格を入力してください',
             'price.numeric' => '価格を半角数字で入力してください',
+            'image.required' => '画像を選択してください'
         ];
     }
 }

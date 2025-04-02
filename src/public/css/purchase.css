@@ -5,13 +5,8 @@
     display: block;
     text-align: center;
 }
-.purchase-form__heading h4{
-    font-size: 25px;
-    font-weight: bold;
-    color: red;
-}
 .purchase__content h2{
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
 }
 .purchase__content h3{

@@ -18,7 +18,10 @@ use App\Http\Controllers\PurchaseController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [AuthController::class, 'index']);
+    //Route::get('/', [AuthController::class, 'index']); 元々入っていたコード。今回は下記のindexを定義しているので不要
+    Route::get('/mypage', [UserController::class, 'mypage']);
+    Route::get('/products', [ProductController::class, 'create']);
+    Route::get('/details/{id}', [ProductController::class, 'show']);
 });
 /*
 Route::middleware('auth')->group(function () {
@@ -26,14 +29,13 @@ Route::middleware('auth')->group(function () {
 });
 */
 Route::get('/', [UserController::class, 'index']);
-Route::get('/mypage', [UserController::class, 'mypage'])->middleware('auth');
+//Route::get('/mypage', [UserController::class, 'mypage'])->middleware('auth');
 
-Route::get('/products', [ProductController::class, 'create']);
+//Route::get('/products', [ProductController::class, 'create']);
 Route::post('/products', [ProductController::class, 'store']);
 //Route::get('/details',[ProductController::class, 'index']);
-Route::get('/details/{id}', [ProductController::class, 'show']); // 商品詳細 データ保存後定義する？
+//Route::get('/details/{id}', [ProductController::class, 'show']); // 商品詳細 データ保存後定義する？
 Route::get('/edit', [ProductController::class, 'edit']);
-//Route::get('/purchase.confirm/{id}', [PurchaseController::class, 'index']);
 Route::get('/purchases/{id}', [PurchaseController::class, 'show']);
 Route::post('/purchases/{id}', [PurchaseController::class, 'store']);
 Route::patch('/edit/update', [ProductController::class, 'update']);

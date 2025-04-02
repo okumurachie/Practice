@@ -7,7 +7,6 @@
 @section('content')
 <div class="purchase__content">
     <div class="purchase-form__heading">
-        <h4>{{$products['id']}}</h4>
         <h2>{{$products['name']}}</h2>
         <h3>{{"¥" . $products['price']}}</h3>
     </div>
