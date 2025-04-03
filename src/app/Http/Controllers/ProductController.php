@@ -16,7 +16,7 @@ class ProductController extends Controller
         $products = Product::with('user')->get();
         $users = User::all();
 
-        return view('product',compact('products', 'users'));
+        return view('product', compact('products', 'users'));
     }
     public function store(ProductRequest $request)
     {
@@ -25,16 +25,16 @@ class ProductController extends Controller
         $productData['user_id'] = Auth::id();
         //$productData['comment'] = $productData['comment'] ?: '';
         //Log::debug('a');
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             //Log::debug('test');
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('public/images',$fileName);
+            $filePath = $file->storeAs('public/images', $fileName);
             $productData['image'] = 'storage/images/' . $fileName;
         }
         //exit;
         Product::create($productData);
-        return redirect('/products')->with('message','出品登録が完了しました');
+        return redirect('/products')->with('message', '出品登録が完了しました');
     }
 
     /*public function index()
@@ -50,18 +50,18 @@ class ProductController extends Controller
     }
 
     public function edit(Request $request)
-        {
-            $products = Product::find($request->id);
-            return view('edit',['form' => $products]);
-        }
+    {
+        $products = Product::find($request->id);
+        //return view('edit',['form' => $products]);
+        return view('edit', compact('products'));
+    }
 
     public function update(ProductRequest $request)
-        {
-            $products = $request ->all();
-            Product::find($request->id)->update($products);
-            return redirect('/edit')->with('message','出品情報を更新しました');
-        }
-
+    {
+        $products = $request->all();
+        Product::find($request->id)->update($products);
+        return redirect('/edit')->with('message', '出品情報を更新しました');
+    }
 }
     //public function index()
     //{
