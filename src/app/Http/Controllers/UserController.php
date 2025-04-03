@@ -15,8 +15,8 @@ class UserController extends Controller
     {
         $users = User::all();
         $products = Product::with('user')->get();
+        $products = Product::with('purchases')->get();
         $products = Product::Paginate(9);
-
         return view('index', compact('users', 'products'));
     }
 

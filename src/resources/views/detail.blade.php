@@ -22,11 +22,15 @@
                     <p>{{$products['comment']}}</p>
                 </div>
             </div>
+            @if($products->purchases)
+            <h1 class="product_sold">SOLD</h1>
+            @else
             <a href="/purchases/{{$products['id']}}">
                 <div class="form_button">
                     <button class="form__button-submit" type="submit">購入手続きへ</button>
                 </div>
             </a>
+            @endif
         </div>
     </div>
 

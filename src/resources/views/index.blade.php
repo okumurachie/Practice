@@ -25,14 +25,14 @@
                             <div class="content__detail-1">
                                 <div class="content__name">
                                     <p>{{$product['name']}}</p>
-                                    @if(isset($product->purchases->created_at))
-                                    <p>{{$product->purchases->created_at}}</p>
-                                    @endif
                                 </div>
                                 <div class="content__price">
                                     <p>{{"¥".number_format($product['price'])}}</p>
                                 </div>
                             </div>
+                            @if($product->purchases)
+                            <h2 class="sold">SOLD</h2>
+                            @endif
                             <div class="content__detail-2">
                                 <p>{{$product['comment']}}</p>
                             </div>

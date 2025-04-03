@@ -16,13 +16,13 @@ class Product extends Model
         'comment'
     ];
     protected $dates = ['display_date'];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
     public function purchases()
     {
-        return $this->hasMany(Purchase::class);
+        return $this->hasOne(Purchase::class);
     }
 }
