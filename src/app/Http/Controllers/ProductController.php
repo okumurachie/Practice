@@ -34,7 +34,7 @@ class ProductController extends Controller
         }
         //exit;
         Product::create($productData);
-        return redirect('/products')->with('message', '出品登録が完了しました');
+        return redirect('/')->with('message', '出品登録が完了しました');
     }
 
     /*public function index()
