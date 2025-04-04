@@ -39,4 +39,4 @@ Route::get('/', [UserController::class, 'index']);
 Route::get('/edit/{id}', [ProductController::class, 'edit']);
 Route::get('/purchases/{id}', [PurchaseController::class, 'show']);
 //Route::post('/purchases/{id}', [PurchaseController::class, 'store']);
-Route::patch('/edit/update', [ProductController::class, 'update']);
+Route::patch('/mypage', [ProductController::class, 'update']);

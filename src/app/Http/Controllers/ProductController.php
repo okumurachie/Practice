@@ -52,16 +52,26 @@ class ProductController extends Controller
 
     public function edit(Request $request)
     {
-        $products = Product::find($request->id);
-        //return view('edit',['form' => $products]);
-        return view('edit', compact('products'));
+        $product = Product::find($request->id);
+        //return view('edit', ['form' => $products]);
+        return view('edit', compact('product'));
     }
 
-    public function update(ProductRequest $request)
+
+    public function update(ProductRequest $request, $id)
     {
-        $products = $request->all();
-        Product::find($request->id)->update($products);
-        return redirect('/edit')->with('message', '出品情報を更新しました');
+        $product = Product::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            //Log::debug('test');
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('public/images', $fileName);
+            $product->image = 'storage/images/' . $fileName;
+        }
+        $product->fill($request->except('image'));
+        $product->save();
+        return redirect('mypage')->with('message', '出品情報を更新しました');
     }
 }
     //public function index()
