@@ -4,6 +4,10 @@
     max-width: 1230px;
 } */
 
+.form_group{
+    display: flex;
+    flex-direction: row;
+}
 .edit-form__heading {
     margin-bottom: 20px;
     text-align: center;

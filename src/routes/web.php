@@ -40,3 +40,5 @@ Route::get('/edit/{id}', [ProductController::class, 'edit']);
 Route::get('/purchases/{id}', [PurchaseController::class, 'show']);
 //Route::post('/purchases/{id}', [PurchaseController::class, 'store']);
 Route::patch('/products/update/{id}', [ProductController::class, 'update']);
+Route::patch('/products/imageUpdate/{id}', [ProductController::class, 'imageUpdate']);
+Route::get('/delete/{id}', [ProductController::class, 'delete']);

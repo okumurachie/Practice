@@ -63,14 +63,14 @@
     display: flex;
 }
 .product-table__item-edit,
-.product-table__item-destroy {
+.product-table__item-delete {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .product-edit,
-.product-destroy {
+.product-delete {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,8 +162,6 @@
     border-bottom: 1px solid #ddd;
 }
 .proceeds-table__row {
-    display: flex;
-    flex-direction: row;
     align-items: center;
     width: 100%;
 }

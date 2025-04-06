@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ImageRequest;
+use App\Http\Requests\EditRequest;
 use App\Models\Product;
 use App\Models\User;
 
@@ -56,26 +58,37 @@ class ProductController extends Controller
         //return view('edit', ['form' => $products]);
         return view('edit', compact('product'));
     }
-
-
-    public function update(ProductRequest $request, $id)
+    public function update(EditRequest $request, $id)
     {
         $product = Product::findOrFail($id);
-
-        if ($request->hasFile('image')) {
-            //Log::debug('test');
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('public/images', $fileName);
-            $product->image = 'storage/images/' . $fileName;
-        } else {
-            $product->image = $request->input('current_image');
-        }
-        $product->update(array_merge(
-            $request->except('image', 'current_image'),
-            ['image' => $product->image]
-        ));
+        $product->update(
+            $request->except('image'),
+        );
         return redirect('mypage')->with('message', '出品情報を更新しました');
+    }
+    public function imageUpdate(ImageRequest $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $file = $request->file('image');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $filePath = $file->storeAs('public/images', $fileName);
+        $productData['image'] = 'storage/images/' . $fileName;
+        return redirect('mypage')->with('message', '画像を更新しました');
+    }
+    public function delete(Request $request)
+    {
+        $product = Product::find($request->id);
+        //return view('edit', ['form' => $products]);
+        return view('delete', compact('product'));
+    }
+    public function softDelete(Request $request)
+    {
+        $productId = $request->input('product_id');
+
+        DB::table('products')
+            ->where('product_id', $productId)
+            ->update(['deleted_at' => now()]);
+        return redirect('mypage')->with('message', '出品を取り消しました');
     }
 }
     //public function index()
