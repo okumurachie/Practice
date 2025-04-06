@@ -68,9 +68,13 @@ class ProductController extends Controller
             $fileName = time() . '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('public/images', $fileName);
             $product->image = 'storage/images/' . $fileName;
+        } else {
+            $product->image = $request->input('current_image');
         }
-        $product->fill($request->except('image'));
-        $product->save();
+        $product->update(array_merge(
+            $request->except('image', 'current_image'),
+            ['image' => $product->image]
+        ));
         return redirect('mypage')->with('message', '出品情報を更新しました');
     }
 }

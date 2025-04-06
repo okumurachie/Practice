@@ -9,7 +9,7 @@
     <div class="edit-form__heading">
         <h2>出品登録</h2>
     </div>
-    <form class="edit-product-form" action="/mypage" method="post" enctype="multipart/form-data">
+    <form class="edit-product-form" action="/products/update/{{$product->id}}" method="post" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <div class="edit-product-form__group">
