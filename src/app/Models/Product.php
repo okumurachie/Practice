@@ -17,7 +17,10 @@ class Product extends Model
         'image',
         'comment'
     ];
-    protected $dates = ['display_date'];
+    protected $dates = [
+        'display_date',
+        'deleted_at'
+    ];
 
     public function user()
     {

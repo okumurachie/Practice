@@ -7,7 +7,7 @@
 @section('content')
 <div class="delete__content">
     <div class="delete-form__heading">
-        <h2>出品登録</h2>
+        <h2>出品取消</h2>
     </div>
     <div class="delete-product__group">
         <div class="delete-product__group-title">
@@ -21,7 +21,7 @@
         <div class="delete-product__group-title">
             <span class="delete-product__label--item">価格</span>
         </div>
-        <div class="delete-product-price">{{$product->price}}</div>
+        <div class="delete-product-price">¥{{number_format($product->price)}}</div>
     </div>
     <div class="delete-product-form__group">
         <div class="delete-product__group-title">
@@ -41,10 +41,9 @@
             <div class="delete-product-comment">{{$product->comment}}</div>
         </div>
     </div>
-    <form class="delete-product-form" action="/soft-delete" method="post">
+    <form class="delete-product-form" action="{{route('products.softDelete', ['id' => $product->id ])}}" method="post">
         @csrf
         <div class="delete-product-form__button">
-            <input type="hidden" name="product_id" value="{{$product->id}}">
             <button class="delete-product-form__button-submit" type="submit">出品を取り消す</button>
         </div>
     </form>

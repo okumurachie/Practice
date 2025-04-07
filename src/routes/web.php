@@ -42,3 +42,4 @@ Route::get('/purchases/{id}', [PurchaseController::class, 'show']);
 Route::patch('/products/update/{id}', [ProductController::class, 'update']);
 Route::patch('/products/imageUpdate/{id}', [ProductController::class, 'imageUpdate']);
 Route::get('/delete/{id}', [ProductController::class, 'delete']);
+Route::post('/products/delete/{id}', [ProductController::class, 'softDelete'])->name('products.softDelete');

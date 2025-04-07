@@ -69,10 +69,22 @@ class ProductController extends Controller
     public function imageUpdate(ImageRequest $request, $id)
     {
         $product = Product::findOrFail($id);
+        // 古い画像を削除（あれば）
+        if ($product->image) {
+            $oldImagePath = str_replace('storage/', 'public/', $product->image);
+            if (\Storage::exists($oldImagePath)) {
+                \Storage::delete($oldImagePath);
+            }
+        }
+        //保存する時は 'storage/images/ファイル名'でも、実際は 'public/images/ファイル名' にあるから。str_replaceする。
+
+        //新しい画像をアップロード
         $file = $request->file('image');
         $fileName = time() . '_' . $file->getClientOriginalName();
         $filePath = $file->storeAs('public/images', $fileName);
-        $productData['image'] = 'storage/images/' . $fileName;
+        // $productData['image'] = 'storage/images/' . $fileName;  $productData使っていないので削除
+        $product->image = 'storage/images/' . $fileName;  //画像パスを更新
+        $product->save(); //DBに保存
         return redirect('mypage')->with('message', '画像を更新しました');
     }
     public function delete(Request $request)
@@ -81,13 +93,10 @@ class ProductController extends Controller
         //return view('edit', ['form' => $products]);
         return view('delete', compact('product'));
     }
-    public function softDelete(Request $request)
+    public function softDelete($id)
     {
-        $productId = $request->input('product_id');
-
-        DB::table('products')
-            ->where('product_id', $productId)
-            ->update(['deleted_at' => now()]);
+        $product = Product::findOrFail($id);
+        $product->delete();
         return redirect('mypage')->with('message', '出品を取り消しました');
     }
 }

@@ -23,7 +23,7 @@
                 <tr class="product-table__row">
                     <td class="product-table__item-content">
                         <p class="product-name">{{$product['name']}}</p>
-                        <p class="product-price">{{"¥" . $product['price']}}</p>
+                        <p class="product-price">¥{{number_format($product['price'])}}</p>
                         <p class="product-date">
                             <span class="date">出品日:</span>
                             <span class="created_at">{{$product['created_at']->format('Y年m月d日')}}</span>
@@ -41,13 +41,13 @@
                             <div class="form_button-delete">
                                 <button class="form__button-submit" type="submit">削除</button>
                             </div>
+                        </a>
+                    </td>
+                </tr>
             </div>
-            </a>
-            </td>
-            </tr>
+            @endforeach
+        </table>
     </div>
-    @endforeach
-    </table>
     <div class="purchase-proceeds__table">
         <div class="purchase-table">
             <table class="purchase-table__inner">
@@ -88,6 +88,5 @@
             </table>
         </div>
     </div>
-</div>
 </div>
 @endsection
