@@ -9,8 +9,21 @@
 - 購入機能（商品の詳細画面から購入する）
 - 出品機能
 - マイページ（ユーザーの出品、購入、売上情報を表示・出品登録情報の編集機能）
+- 出品・購入はログインしたユーザーのみ可能
+- 購入された商品には"SOLD"と表示し、再度購入や、出品の取消がされないようにする
 
 ## データベース
+
+### 主：users -> 従：products ->従:purchases
+
+|:users :|:product:|:purchases: |
+|:id :|:id :|:id :|
+|:name :|:user_id:|:user_id :|
+|:email :|:name :|:product_id:|
+|:password:|:image :|:recipient: |
+| |:comment:| |
+
+## 作成ページ
 
 ## 準備手順
 
@@ -18,10 +31,10 @@
 
 - リモートリポジトリの作成  
   GitHub でリモートリポジトリを作成  
-  リポジトリ（Practice）名を入力したら他の設定は変更せずに作成ボタンを押す  
+  リポジトリ名(Practice)を入力したら他の設定は変更せずに作成ボタンを押す  
   作成したら下記を控える  
   新しいリポジトリの SSH => 上で作成した SSH アドレス  
-  新しいリポジトリの名前 => 上で自由に入力したリポジトリ名
+  新しいリポジトリの名前 => 上で入力したリポジトリ名(Practice)
 
 - コマンドライン(Ubuntu or Terminal)を開く
 
@@ -42,7 +55,7 @@ git clone 新しいリポジトリのSSH
 ```
 
 ```
-mv laravel-template-arm/* laravel-template-arm/.[^\.]* 新しいリポジトリの名前
+mv laravel-template-arm/* laravel-template-arm/.[^\.]* 新しいリポジトリの名前(Practice)
 ```
 
 ```
@@ -50,7 +63,7 @@ rm -r laravel-template-arm
 ```
 
 ```
-cd 新しいリポジトリの名前
+cd Practice
 ```
 
 ```
@@ -97,7 +110,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
-## 環境構築手順が終わった後にやること(この手順はアプリ完成時には README から削除する)
+## 環境構築手順が終わった後にやること
 
 - ブラウザで動作チェック  
   localhost にアクセスして動作確認  
