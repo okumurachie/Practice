@@ -32,8 +32,7 @@ class UserController extends Controller
     public function mypage(Request $request)
     {
         $user = auth()->user();
-        $products = Product::where('user_id', $user->id)->get();
-        $products = Product::with('purchases')->get();
+        $products = Product::where('user_id', $user->id)->with('purchases')->get();
         $purchases = Purchase::where('user_id', $user->id)->get();
 
         $sales = Purchase::whereHas('product', function ($q) use ($user) {
