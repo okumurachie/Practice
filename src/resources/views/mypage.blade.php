@@ -29,6 +29,11 @@
                             <span class="created_at">{{$product['created_at']->format('Y年m月d日')}}</span>
                         </p>
                     </td>
+                    @if($product->purchases)
+                    <td class="product-table__item-sold">
+                        <h2 class="sold">SOLD</h2>
+                    </td>
+                    @else
                     <td class="product-table__item-edit">
                         <a href="/edit/{{$product['id']}}" class="product-edit">
                             <div class="form_button-edit">
@@ -43,6 +48,7 @@
                             </div>
                         </a>
                     </td>
+                    @endif
                 </tr>
             </div>
             @endforeach
