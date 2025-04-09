@@ -8,28 +8,32 @@
 <dv class="product_content">
     <div class="product_content_card">
         <div class="product_img">
-            <img src="{{asset($products['image'])}}" alt="{{$products['name']}}">
+            <img src="{{asset($product['image'])}}" alt="{{$product['name']}}">
         </div>
         <div class="about-product">
             <div class="product_information">
                 <div class="product_name">
-                    <h2>{{$products['name']}}</h2>
+                    <h2>{{$product['name']}}</h2>
                 </div>
                 <div class="product_price">
-                    <p>{{"¥" . number_format($products['price'])}}</p>
+                    <p>{{"¥" . number_format($product['price'])}}</p>
                 </div>
                 <div class="product_comment">
-                    <p>{{$products['comment']}}</p>
+                    <p>{{$product['comment']}}</p>
                 </div>
             </div>
-            @if($products->purchases)
+            @if($product->purchases()->exists())
             <h1 class="product_sold">SOLD</h1>
             @else
-            <a href="/purchases/{{$products['id']}}">
+            @if(Auth::id() !== $product->user_id)
+            <a href="/purchases/{{$product['id']}}">
                 <div class="form_button">
                     <button class="form__button-submit" type="submit">購入手続きへ</button>
                 </div>
             </a>
+            @else
+            <h1 class="your-product">あなたが出品した商品です</h1>
+            @endif
             @endif
         </div>
     </div>

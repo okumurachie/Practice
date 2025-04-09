@@ -47,9 +47,8 @@ class ProductController extends Controller
     */
     public function show($id)
     {
-        $products = Product::findOrFail($id);
-        $products = Product::with('purchases')->findOrFail($id);
-        return view('detail', compact('products'));
+        $product = Product::with('purchases')->findOrFail($id);
+        return view('detail', compact('product'));
     }
 
     public function edit(Request $request)
