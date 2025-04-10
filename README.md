@@ -16,14 +16,28 @@
 
 ### 主：users -> 従：products ->従:purchases
 
-|:users :|:product:|:purchases: |
-|:id :|:id :|:id :|
-|:name :|:user_id:|:user_id :|
-|:email :|:name :|:product_id:|
-|:password:|:image :|:recipient: |
-| |:comment:| |
+|  users   | product | purchases  |
+| :------: | :-----: | :--------: |
+|    id    |   id    |     id     |
+|   name   | user_id |  user_id   |
+|  email   |  name   | product_id |
+| password |  image  | recipient  |
+|          | comment |            |
 
 ## 作成ページ
+
+###header・footer は同じスタイル（layouts/app.blade.php）
+|ページ|機能|ファイル名|header・footer|
+|:------: |:------: |:------: |
+|商品一覧(ホーム画面)|商品一覧表示、商品を選ぶと詳細画面へ|index.blade.php|
+|詳細画面|ログイン後、アクセス可。購入画面へリンク|detail.blade.php|
+|ログイン画面|ログイン後、ホーム画面にリダイレクト。"ログインに成功しました"|auth/login.blade.php|
+|会員登録画面|登録後、ホーム画面にリダイレクト。"会員登録が完了しました"|auth/register.blade.php|
+|マイページ|ログイン中のユーザーの出品、購入、売上情報表示。出品の編集・削除画面にリンク|mypage.blade.php|
+||||
+||||
+||||
+||||
 
 ## 準備手順
 
