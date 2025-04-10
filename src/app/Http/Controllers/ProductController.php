@@ -98,6 +98,15 @@ class ProductController extends Controller
         $product->delete();
         return redirect('mypage')->with('message', '出品を取り消しました');
     }
+    public function ship($id)
+    {
+        $product = Product::findOrFail($id);
+        if (Auth::id() === $product->user_id) {
+            $product->shipping_status = 1;
+            $product->save();
+        }
+        return redirect('mypage')->with('message', '商品を発送しました');
+    }
 }
     //public function index()
     //{

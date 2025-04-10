@@ -19,38 +19,45 @@
                 <th class="product-table__header-1">出品履歴</th>
             </tr>
             @foreach($products as $product)
-            <div class="product-table_inner-item">
-                <tr class="product-table__row">
-                    <td class="product-table__item-content">
-                        <p class="product-name">{{$product['name']}}</p>
-                        <p class="product-price">¥{{number_format($product['price'])}}</p>
-                        <p class="product-date">
-                            <span class="date">出品日:</span>
-                            <span class="created_at">{{$product['created_at']->format('Y年m月d日')}}</span>
-                        </p>
-                    </td>
-                    @if($product->purchases)
-                    <td class="product-table__item-sold">
-                        <h2 class="sold">SOLD</h2>
-                    </td>
-                    @else
-                    <td class="product-table__item-edit">
-                        <a href="/edit/{{$product['id']}}" class="product-edit">
-                            <div class="form_button-edit">
-                                <button class="form__button-submit" type="submit">編集</button>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="product-table__item-delete">
-                        <a href="/delete/{{$product['id']}}" class="product-delete">
-                            <div class="form_button-delete">
-                                <button class="form__button-submit" type="submit">削除</button>
-                            </div>
-                        </a>
-                    </td>
-                    @endif
-                </tr>
-            </div>
+            <tr class="product-table__row">
+                <td class="product-table__item-content">
+                    <p class="product-name">{{$product['name']}}</p>
+                    <p class="product-price">¥{{number_format($product['price'])}}</p>
+                    <p class="product-date">
+                        <span class="date">出品日:</span>
+                        <span class="created_at">{{$product['created_at']->format('Y年m月d日')}}</span>
+                    </p>
+                </td>
+                @if($product->purchases()->exists())
+                @if($product->shipping_status == 0)
+                <td class="product-table__form-shipping">
+                    <form action="{{route('product.ship',$product->id)}}" method="POST" onsubmit="return confirm('本当に発送しますか？');">
+                        @csrf
+                        <button class="shipping_form_button">発送</button>
+                    </form>
+                </td>
+                @elseif($product->shipping_status == 1)
+                <td class="product-table__item-complete">
+                    <h2 class="complete">発送完了</h2>
+                </td>
+                @endif
+                @else
+                <td class="product-table__item-edit">
+                    <a href="/edit/{{$product['id']}}" class="product-edit">
+                        <div class="form_button-edit">
+                            <button class="form__button-submit" type="submit">編集</button>
+                        </div>
+                    </a>
+                </td>
+                <td class="product-table__item-delete">
+                    <a href="/delete/{{$product['id']}}" class="product-delete">
+                        <div class="form_button-delete">
+                            <button class="form__button-submit" type="submit">削除</button>
+                        </div>
+                    </a>
+                </td>
+                @endif
+            </tr>
             @endforeach
         </table>
     </div>

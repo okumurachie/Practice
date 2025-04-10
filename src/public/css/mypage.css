@@ -62,20 +62,37 @@
     flex: 3;
     display: flex;
 }
-.product-table__item-sold{
+.product-table__form-shipping,
+.product-table__item-complete{
     flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.sold{
-    width: 70%;
+.shipping_form_button{
     padding: 10px;
     height: 50px;
     color: #fff;
+    border: none;
+    border-radius: 3px;
     background-color: red;
-    font-weight: bold;
-    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.complete{
+    padding: 10px;
+    height: 50px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(9, 143, 62);
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .product-table__item-edit,
 .product-table__item-delete {
