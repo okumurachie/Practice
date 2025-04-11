@@ -5,6 +5,7 @@
 ## 必要要件
 
 - 会員登録・ログイン機能
+- 会員登録時、メール認証する
 - 商品一覧機能（一覧から商品選択すると、商品の詳細画面へ移動）
 - 購入機能（商品の詳細画面から購入する）
 - 出品機能
@@ -24,69 +25,11 @@
 | password |  image  | recipient  |
 |          | comment |            |
 
-## 作成ページ
+## ER 図
 
-###header・footer は同じスタイル（layouts/app.blade.php）
-|ページ|機能|ファイル名|header・footer|
-|:------: |:------: |:------: |
-|商品一覧(ホーム画面)|商品一覧表示、商品を選ぶと詳細画面へ|index.blade.php|
-|詳細画面|ログイン後、アクセス可。購入画面へリンク|detail.blade.php|
-|ログイン画面|ログイン後、ホーム画面にリダイレクト。"ログインに成功しました"|auth/login.blade.php|
-|会員登録画面|登録後、ホーム画面にリダイレクト。"会員登録が完了しました"|auth/register.blade.php|
-|マイページ|ログイン中のユーザーの出品、購入、売上情報表示。出品の編集・削除画面にリンク|mypage.blade.php|
-||||
-||||
-||||
-||||
-
-## 準備手順
-
-- Docker Desktop で全コンテナを停止させる
-
-- リモートリポジトリの作成  
-  GitHub でリモートリポジトリを作成  
-  リポジトリ名(Practice)を入力したら他の設定は変更せずに作成ボタンを押す  
-  作成したら下記を控える  
-  新しいリポジトリの SSH => 上で作成した SSH アドレス  
-  新しいリポジトリの名前 => 上で入力したリポジトリ名(Practice)
-
-- コマンドライン(Ubuntu or Terminal)を開く
-
-- カレントディレクトリ(現在のディレクトリ)を coachtech に移動する
-
-- 以下のコマンドを実行する
-
-```
-git clone git@github.com:tamachima327/laravel-template-arm.git
-```
-
-```
-yes | rm -r laravel-template-arm/.git
-```
-
-```
-git clone 新しいリポジトリのSSH
-```
-
-```
-mv laravel-template-arm/* laravel-template-arm/.[^\.]* 新しいリポジトリの名前(Practice)
-```
-
-```
-rm -r laravel-template-arm
-```
-
-```
-cd Practice
-```
-
-```
-code .
-```
+![ER図](./index.png)
 
 ## 環境構築手順
-
-※Arm アーキテクチャのイメージを使用しているので、Apple Silicon の Mac で動作確認お願いします
 
 - コンテナを立ち上げるため、以下を実行
 
@@ -124,21 +67,31 @@ php artisan key:generate
 php artisan migrate
 ```
 
-## 環境構築手順が終わった後にやること
+- 各データのシーディング
 
-- ブラウザで動作チェック  
-  localhost にアクセスして動作確認  
-  localhost:8080 にアクセスして phpmyadmin が見れるか確認
+```
+php artisan make:seeder UserSeeder,
+php artisan make:seeder ProductSeeder,
+php artisan make:seeder PurchaseSeeder
+```
 
-- 環境構築手順で動くことを確認したら commit/push して環境構築完了  
-  コミットメッセージは"First commit"
+- メール認証機能作成（Mailhog 連携）
 
-## 開発でやる必要があること(この手順はアプリ完成時には README から削除する)
+```
+$ brew install mailhog　（インストール）
+$ brew services start mailhog　（MacOS起動時にMailHogが自動的に起動するようにする）
+```
 
-- view ファイルの作成・修正・削除
-- controller の作成・修正
-- model の作成・修正
-- css の作成・修正・削除(クラス名も直すこと)
-- migration ファイルの作成・修正
-- seeder の作成
-- README.md(このファイル)の修正
+- docker-compose.yml に Mailhog サービス を追加し、docker-compose 再起動。
+
+```
+$docker-compose down
+$docker-compose up -d --build
+```
+
+- Laravel のキャッシュクリア
+
+```
+php artisan config:clear
+php artisan config:cache
+```
